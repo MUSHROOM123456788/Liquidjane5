@@ -102,3 +102,19 @@ body::after {
 .corner-tr { top: 20px; right: 20px; }
 .corner-bl { bottom: 20px; left: 20px; }
 .corner-br { bottom: 20px; right: 20px; }
+/* 🌌 Liquid Purple Gradient Background */
+body {
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(135deg, #a020f0, #4b0082, #800080, #c71585);
+  background-size: 400% 400%;
+  animation: liquidFlow 6s ease-in-out infinite;
+  cursor: none; /* still hides the default cursor */
+}
+
+@keyframes liquidFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
