@@ -142,3 +142,21 @@ body {
   background-color: rgba(255, 255, 255, 0.1);
   box-shadow: 0 0 10px #ff69b4;
 }
+@media (max-width: 768px) {
+  /* Shrink title and move image boxes away from it */
+  h1.title {
+    font-size: 2rem;       /* smaller title */
+    margin-top: 3rem;      /* push it down from the top */
+  }
+
+  /* Shrink and reposition image boxes for mobile */
+  .corner-box {
+    width: 70px;
+    height: 70px;
+  }
+
+  .corner-tl { top: 10px; left: 10px; }
+  .corner-tr { top: 10px; right: 10px; }
+  .corner-bl { bottom: 10px; left: 10px; }
+  .corner-br { bottom: 10px; right: 10px; }
+}
