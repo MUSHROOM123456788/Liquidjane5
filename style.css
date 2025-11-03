@@ -1,17 +1,26 @@
-/* Title - graffiti style */
 @import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
 
 body {
   margin: 0;
   overflow: hidden;
   font-family: 'Bangers', cursive;
-  background: linear-gradient(135deg, #ff5f6d, #ffc371, #ff007f, #ff1493);
+  background: linear-gradient(135deg, #ff5f6d, #ff007f, #ff1493);
   background-size: 400% 400%;
-  animation: meltPink 5s ease-in-out infinite;
-  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' height='40' width='40'><text y='32' font-size='32'>🧜‍♀️</text></svg>"), auto;
+  animation: melt 5s ease-in-out infinite;
+  cursor: default;
 }
 
-@keyframes meltPink {
+body::after {
+  content: "🧜‍♀️";
+  position: fixed;
+  pointer-events: none;
+  font-size: 2rem;
+  z-index: 9999;
+  animation: followCursor 0.05s linear infinite;
+}
+
+/* animate gradient background */
+@keyframes melt {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
@@ -22,31 +31,35 @@ body {
   color: #ff8800;
   text-shadow: 4px 4px 0 #ff1493, 6px 6px 0 red;
   text-align: center;
-  margin-top: 80px;
-  letter-spacing: 4px;
+  margin-top: 60px;
+  letter-spacing: 3px;
 }
 
-/* Fish buttons in a circle */
+/* fish orbit circle */
 .fish-container {
-  position: relative;
-  width: 300px;
-  height: 300px;
-  margin: 100px auto;
-  animation: spinCircle 25s linear infinite;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 350px;
+  height: 350px;
+  margin-top: -175px;
+  margin-left: -175px;
+  animation: spin 20s linear infinite;
+  transform-origin: center center;
 }
-@keyframes spinCircle {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 .fish {
   position: absolute;
   font-size: 48px;
   text-decoration: none;
-  transition: transform 0.3s;
 }
-.fish:hover {
-  transform: scale(1.3);
-}
-
-/
+.fish:nth-child(1) { top: 0; left: 50%; transform: translateX(-50%); }
+.fish:nth-child(2) { top: 20%; right: 0; transform: translateY(-50%); }
+.fish:nth-child(3) { top: 50%; right: 0; transform: translateY(-50%); }
+.fish:nth-child(4) { bottom: 20%; right: 0; transform: translateY(50%); }
+.fish:nth-child(5) { bottom: 0; left: 50%; transform: translateX(-50%); }
+.fish:nth-child(6) { bottom: 20%; left: 0; transform: translateY(
