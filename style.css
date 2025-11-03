@@ -234,3 +234,23 @@ h1.title {
     font-size: 36px;
   }
 }
+.fish-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 400px;
+  transform: translate(-50%, -50%);
+  animation: spin 40s linear infinite;
+  transform-origin: center center;
+  pointer-events: auto; /* enable clicks */
+  z-index: 5; /* behind title but above background */
+}
+
+.fish {
+  position: absolute;
+  font-size: 60px;
+  transform-origin: center center;
+  pointer-events: auto; /* allow click */
+  cursor: pointer; /* indicate clickable */
+}
