@@ -3,57 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LIQUID JANE</title>
+  <title>LIQUIDJANE</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<body><h1 class="title">LIQUIDJANE</h1>
+<body>
+  <h1 class="title">LIQUIDJANE</h1>
 
-<div class="fish-container">
-  <a href="page1.html" class="fish-button" style="top:0; left:175px;">🐟</a>
-  <a href="page2.html" class="fish-button" style="top:80px; left:300px;">🐠</a>
-  <a href="page3.html" class="fish-button" style="top:200px; left:340px;">🐡</a>
-  <a href="page4.html" class="fish-button" style="top:300px; left:270px;">🐬</a>
-  <a href="page5.html" class="fish-button" style="top:340px; left:160px;">🐳</a>
-  <a href="page6.html" class="fish-button" style="top:250px; left:40px;">🐋</a>
-  <a href="page7.html" class="fish-button" style="top:100px; left:20px;">🦈</a>
-</div>
+  <div class="fish-container">
+    <a href="page1.html" class="fish">🐟</a>
+    <a href="page2.html" class="fish">🐠</a>
+    <a href="page3.html" class="fish">🐡</a>
+    <a href="page4.html" class="fish">🐬</a>
+    <a href="page5.html" class="fish">🐳</a>
+    <a href="page6.html" class="fish">🐋</a>
+    <a href="page7.html" class="fish">🦈</a>
+  </div>
 
-<div class="instrument-line">
-  🎤 🎧 🎸 🥁 🎹 🎷 🎺
-</div>
+  <div class="instrument-line">
+    🎤 🎧 🎸 🥁 🎹 🎷 🎺
+  </div>
 
-  <script src="script.js"></script>
-  <script>
-document.addEventListener("DOMContentLoaded", () => {
-  document.querySelectorAll(".fish").forEach(fish => {
-    fish.addEventListener("click", e => {
-      e.preventDefault();
-      const target = e.target.getAttribute("href");
-      fetch(target)
-        .then(res => {
-          if (res.ok) {
-            window.location.href = target;
-          } else {
-            alert("Page not found yet! Please make sure all 7 pages exist (page1.html - page7.html).");
-          }
-        })
-        .catch(() => alert("That page isn't uploaded yet!"));
-    });
-  });
-});
-</script>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LiquidJane Page 1</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body class="green-liquid">
-<h1><a href="index.html" class="title-link">💧 LIQUIDJANE 💧</a></h1>
   <script src="script.js"></script>
 </body>
 </html>
