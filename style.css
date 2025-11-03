@@ -160,3 +160,35 @@ body {
   .corner-bl { bottom: 10px; left: 10px; }
   .corner-br { bottom: 10px; right: 10px; }
 }
+@media (max-width: 768px) {
+  /* Shrink and reposition title */
+  h1.title {
+    font-size: 2rem;       /* smaller title */
+    margin-top: 4rem;      /* push further down */
+    z-index: 10;
+    text-align: center;
+  }
+
+  /* Shrink image boxes */
+  .corner-box {
+    width: 60px;
+    height: 60px;
+  }
+
+  /* Reposition boxes further from title */
+  .corner-tl { top: 5px; left: 5px; }
+  .corner-tr { top: 5px; right: 5px; }
+  .corner-bl { bottom: 5px; left: 5px; }
+  .corner-br { bottom: 5px; right: 5px; }
+
+  /* Optional: move fish orbit down a bit */
+  .fish-container {
+    top: 65%; /* push orbit down on small screens */
+    width: 250px;
+    height: 250px;
+  }
+
+  .fish {
+    font-size: 36px; /* smaller fish for mobile */
+  }
+}
