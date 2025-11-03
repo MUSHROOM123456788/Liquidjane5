@@ -254,3 +254,23 @@ h1.title {
   pointer-events: auto; /* allow click */
   cursor: pointer; /* indicate clickable */
 }
+.fish-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 400px;
+  transform: translate(-50%, -50%);
+  animation: spin 40s linear infinite linear;
+  transform-origin: center center;
+  pointer-events: none; /* disable container events */
+  z-index: 5;
+}
+
+.fish-container a.fish {
+  position: absolute;
+  font-size: 60px;
+  pointer-events: auto; /* allow clicks */
+  cursor: pointer;
+  text-decoration: none;
+}
