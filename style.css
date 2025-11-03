@@ -1,14 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
 
-body {
-  margin: 0;
-  overflow: hidden;
-  font-family: 'Bangers', cursive;
-  background: linear-gradient(135deg, #ff5f6d, #ff007f, #ff1493);
-  background-size: 400% 400%;
-  animation: melt 5s ease-in-out infinite;
-  cursor: default;
-}
 
 body::after {
   content: "🧜‍♀️";
