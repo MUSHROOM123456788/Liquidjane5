@@ -1,41 +1,52 @@
 @import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
 
-
-body::after {
-  content: "🧜‍♀️";
-  position: fixed;
-  pointer-events: none;
-  font-size: 2rem;
-  z-index: 9999;
-  animation: followCursor 0.05s linear infinite;
+/* ------------------------
+   Body & Background
+------------------------ */
+body {
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+  font-family: 'Bangers', cursive;
+  background: linear-gradient(135deg, #a020f0, #4b0082, #800080, #c71585);
+  background-size: 400% 400%;
+  animation: liquidFlow 6s ease-in-out infinite;
+  cursor: none; /* hide default cursor */
 }
 
-/* animate gradient background */
-@keyframes melt {
+@keyframes liquidFlow {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
 
-.title {
+/* ------------------------
+   Title
+------------------------ */
+h1.title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   font-size: 100px;
   color: #ff8800;
   text-shadow: 4px 4px 0 #ff1493, 6px 6px 0 red;
   text-align: center;
-  margin-top: 60px;
-  letter-spacing: 3px;
+  letter-spacing: 4px;
+  z-index: 10;
 }
 
-/* 🐠 FIXED hypnotic fish orbit animation */
-
+/* ------------------------
+   Fish Orbit
+------------------------ */
 .fish-container {
   position: absolute;
-  top: 60%;
+  top: 50%;
   left: 50%;
-  width: 500px; /* wider circle */
-  height: 500px;
+  width: 400px;
+  height: 400px;
   transform: translate(-50%, -50%);
-  animation: spin 40s linear infinite; /* slower for hypnotic motion */
+  animation: spin 40s linear infinite;
   transform-origin: center center;
 }
 
@@ -48,22 +59,35 @@ body::after {
   position: absolute;
   font-size: 60px;
   text-decoration: none;
-  transition: transform 0.3s ease-in-out;
+  transform-origin: center center;
 }
 
-/* Even 7-point circle */
-.fish:nth-child(1) { top: 0; left: 50%; transform: translate(-50%, -50%); }
-.fish:nth-child(2) { top: 18%; right: 10%; transform: translate(50%, -50%); }
-.fish:nth-child(3) { top: 50%; right: 0; transform: translate(50%, -50%); }
-.fish:nth-child(4) { bottom: 18%; right: 10%; transform: translate(50%, 50%); }
-.fish:nth-child(5) { bottom: 0; left: 50%; transform: translate(-50%, 50%); }
-.fish:nth-child(6) { bottom: 18%; left: 10%; transform: translate(-50%, 50%); }
-.fish:nth-child(7) { top: 18%; left: 10%; transform: translate(-50%, -50%); }
+.fish:nth-child(1) { transform: rotate(0deg) translate(200px) rotate(0deg); }
+.fish:nth-child(2) { transform: rotate(51.4deg) translate(200px) rotate(-51.4deg); }
+.fish:nth-child(3) { transform: rotate(102.8deg) translate(200px) rotate(-102.8deg); }
+.fish:nth-child(4) { transform: rotate(154.2deg) translate(200px) rotate(-154.2deg); }
+.fish:nth-child(5) { transform: rotate(205.6deg) translate(200px) rotate(-205.6deg); }
+.fish:nth-child(6) { transform: rotate(257deg) translate(200px) rotate(-257deg); }
+.fish:nth-child(7) { transform: rotate(308.4deg) translate(200px) rotate(-308.4deg); }
 
 .fish:hover {
-  transform: scale(1.4) rotate(15deg);
+  transform: scale(1.3) rotate(0deg);
 }
-/* 🔳 Corner Image Boxes */
+
+/* ------------------------
+   Instruments Line
+------------------------ */
+.instrument-line {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  text-align: center;
+  font-size: 36px;
+}
+
+/* ------------------------
+   Corner Image Boxes
+------------------------ */
 .corner-box {
   position: absolute;
   width: 160px;
@@ -88,107 +112,50 @@ body::after {
   object-fit: cover;
 }
 
-/* Corner positions */
 .corner-tl { top: 20px; left: 20px; }
 .corner-tr { top: 20px; right: 20px; }
 .corner-bl { bottom: 20px; left: 20px; }
 .corner-br { bottom: 20px; right: 20px; }
-/* 🌌 Liquid Purple Gradient Background */
-body {
-  margin: 0;
-  height: 100vh;
-  overflow: hidden;
-  background: linear-gradient(135deg, #a020f0, #4b0082, #800080, #c71585);
-  background-size: 400% 400%;
-  animation: liquidFlow 6s ease-in-out infinite;
-  cursor: none; /* still hides the default cursor */
+
+/* ------------------------
+   Mermaid Cursor
+------------------------ */
+#cursor {
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  pointer-events: none;
+  font-size: 40px;
+  z-index: 100;
 }
 
-@keyframes liquidFlow {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-/* 📱 Responsive design for mobile screens */
+/* ------------------------
+   Mobile / Responsive
+------------------------ */
 @media (max-width: 768px) {
-  body {
-    background-size: 600% 600%; /* smoother gradient motion */
-    animation: liquidFlow 10s ease-in-out infinite;
-  }
-
-  h1 {
-    font-size: 2rem;  /* smaller but still bold on mobile */
-    text-align: center;
-    margin-top: 1.5rem;
-  }
-
-  .fish {
-    transform: scale(0.7);  /* smaller fish */
-  }
-
-  .image-box {
-    width: 80px;
-    height: 80px;
-  }
-}
-
-/* 🪩 Make sure image boxes fit nicely on mobile corners */
-.image-box {
-  position: absolute;
-  width: 120px;
-  height: 120px;
-  border: 3px solid #ff69b4;
-  border-radius: 15px;
-  background-color: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 0 10px #ff69b4;
-}
-@media (max-width: 768px) {
-  /* Shrink title and move image boxes away from it */
   h1.title {
-    font-size: 2rem;       /* smaller title */
-    margin-top: 3rem;      /* push it down from the top */
+    font-size: 2.5rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 
-  /* Shrink and reposition image boxes for mobile */
-  .corner-box {
-    width: 70px;
-    height: 70px;
-  }
-
-  .corner-tl { top: 10px; left: 10px; }
-  .corner-tr { top: 10px; right: 10px; }
-  .corner-bl { bottom: 10px; left: 10px; }
-  .corner-br { bottom: 10px; right: 10px; }
-}
-@media (max-width: 768px) {
-  /* Shrink and reposition title */
-  h1.title {
-    font-size: 2rem;       /* smaller title */
-    margin-top: 4rem;      /* push further down */
-    z-index: 10;
-    text-align: center;
-  }
-
-  /* Shrink image boxes */
-  .corner-box {
-    width: 60px;
-    height: 60px;
-  }
-
-  /* Reposition boxes further from title */
-  .corner-tl { top: 5px; left: 5px; }
-  .corner-tr { top: 5px; right: 5px; }
-  .corner-bl { bottom: 5px; left: 5px; }
-  .corner-br { bottom: 5px; right: 5px; }
-
-  /* Optional: move fish orbit down a bit */
   .fish-container {
-    top: 65%; /* push orbit down on small screens */
     width: 250px;
     height: 250px;
   }
 
   .fish {
-    font-size: 36px; /* smaller fish for mobile */
+    font-size: 36px;
   }
+
+  .corner-box {
+    width: 60px;
+    height: 60px;
+  }
+
+  .corner-tl { top: 5%; left: 5%; }
+  .corner-tr { top: 5%; right: 5%; }
+  .corner-bl { bottom: 5%; left: 5%; }
+  .corner-br { bottom: 5%; right: 5%; }
 }
